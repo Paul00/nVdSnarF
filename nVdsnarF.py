@@ -106,7 +106,7 @@ def main():
 		else:
 			usage()
 
-	tree = ET.parse("nvdcve-modified.xml")
+	tree = ET.parse("nvdcve-2018.xml")
 	root = tree.getroot()
 
 	if (vendor and product and version) != "":
