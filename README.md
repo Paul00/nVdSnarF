@@ -13,7 +13,7 @@
 
 	nVdSnarF - brushes by you....
 	
-	uthor: www.github.com/Pau00
+	Author: www.github.com/Pau00
 	
 	Usage: python3 nVdSnarF.py -f nvdcve-2019.xml -v [vendor] -p [product] -n [version]
 	This tool requires NVD XML 1.2.1 Shcema version ofNVD database.
@@ -21,5 +21,5 @@
 	Examples:  
 	python3 nVdSnarF.py -v apache -p mesos
 	python3 nVdSnarF.py -v schneider-electric
-	python3 nVdSnarF.py -v emerson -p deltav
+	python3 nVdSnarF.py -v emerson -p deltav_distributed_control_system
 
