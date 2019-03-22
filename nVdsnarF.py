@@ -19,12 +19,13 @@ def usage():
 	print (" ")
 	print ("  Author: www.github.com/Pau00")
 	print ("  ")
-	print ("  Usage: python3 nVdSnarF.py")
-	print ("  This loads a hardcoded version of the NVD database.")
+	print ("  Usage: python3 nVdSnarF.py -f nvdcve-2019.xml -v [vendor] -p [product] -n [version]")
+	print ("  This tool requires NVD XML 1.2.1 Shcema version ofNVD database.")
 	print ("  Tested with latest nvdce-modified.xml (included)")
 	print ("  Examples:   ")
 	print ("  python3 nVdSnarF.py -v apache -p mesos")
 	print ("  python3 nVdSnarF.py -v schneider-electric")
+	print ("  python3 nVdSnarF.py -v emerson -p deltav")
 	print (" ")
 	sys.exit(0)
 
@@ -81,6 +82,7 @@ def search3(root,vendor,product,version):
 
 # Main Program
 def main():
+	file = ""
 	vendor = ""
 	product = ""
 	version = ""
@@ -89,7 +91,7 @@ def main():
 		usage()
 
 	try:
-		opts, args = getopt.getopt(sys.argv[1:], "h:v:p:n:",["help", "Vendor", "Product", "Version"])
+		opts, args = getopt.getopt(sys.argv[1:], "h:f:v:p:n:",["help", "File", "Vendor", "Product", "Version"])
 	except getopt.GetoptError as err:
 		print(err)
 		usage()
@@ -97,6 +99,8 @@ def main():
 	for o,a in opts:
 		if o in ("-h", "--help"):
 			usage()
+		elif o in ("-f", "--file"):
+			file = a
 		elif o in ("-v", "--vendor"):
 			vendor = a
 		elif o in ("-p", "--product"):
@@ -106,7 +110,7 @@ def main():
 		else:
 			usage()
 
-	tree = ET.parse("nvdcve-2018.xml")
+	tree = ET.parse(file)
 	root = tree.getroot()
 
 	if (vendor and product and version) != "":
