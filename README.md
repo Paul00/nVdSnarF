@@ -1,10 +1,6 @@
-
----
-
-````markdown
 # nVdSnarF
 
-```text
+```
 #################################################################
 #                                                               #
 #       ____   ____ .____________                  ___________  #
@@ -15,9 +11,10 @@
 #       \/           \/       \/     \/     \/          \/      #
 #                                                               #
 #################################################################
-````
+```
 
 **nVdSnarF** is a fast, flexible CVE search utility for **NVD XML** and **NVD JSON 2.0** vulnerability feeds, built as a Python CLI with rich table output, advanced matching, and export options.
+
 Author: **[www.github.com/Pau00](http://www.github.com/Pau00)**
 
 ---
@@ -182,9 +179,15 @@ Feel free to file issues, suggest improvements, or submit pull requests.
 
 ---
 
+## 🙏 Credits
+
+Crafted with care by [Paul00](https://github.com/Paul00)
+
+---
+
 ## ⚖️ License
 
-MIT License — Use it, change it, and make it yours. ([GitHub][1])
+MIT License – do whatever you want, just don’t claim you wrote it 😉
 
 ---
 
