@@ -121,8 +121,49 @@ python3 nVdSnarF.py search -f nvd.json --vendor-contains siem --product-regex ".
 ┃ CVE           ┃ Severity ┃ CVSS  ┃ Vendor   ┃ Product          ┃ Versions   ┃ Published     ┃ Modified      ┃ Description ┃
 ┡━━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
 ┃ CVE-2025-0168 ┃ [red]HIGH[/red]    ┃ [red]7.5[/red]  ┃ code   ┃ job_recruitment   ┃ 1.0        ┃ 2025-01-01   ┃ 2025-02-25   ┃ SQL injection…┃
-...
 └───────────────┴──────────┴───────┴──────────┴──────────────────┴────────────┴──────────────┴──────────────┴─────────────┘
+```
+```
+#################################################################
+#                                                               #
+#       ____   ____ .____________                  ___________  #
+#    ___\   \ /   /_| _/   _____/ ____ _____ ______\_   _____/  #
+#   /    \   Y   / __ |\_____  \ /     \__   \_  __ \    __)    #
+#  |   |  \     / /_/ |/        \   |  \/ __ \|  | \/     \     #
+#  |___|  /\___/\____ /_______  /___|  (____  /__|  \___  /     #
+#       \/           \/       \/     \/     \/          \/      #
+#                                                               #
+#################################################################
+
+nVdSnarF - XML + NVD JSON 2.0 edition
+Author: www.github.com/Pau00
+
+╭───────────────────── Input Summary ─────────────────────╮
+│ File: nvdcve-2.0-2026.json                              │
+│ Format: NVD_CVE  Version: 2.0                           │
+│ Timestamp: 2026-02-18T03:00:00.4990529                  │
+│ StartIndex: 0  ResultsPerPage: 3627  TotalResults: 3627 │
+│ Vulnerabilities array: 3627                             │
+╰─────────────────────────────────────────────────────────╯
+                                                                                                                               nVdSnarF Results                                                                                                                                
+┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━┳━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ CVE            ┃ Severity ┃ CVSS ┃ Vendor   ┃ Product ┃ Versions ┃ Published               ┃ Modified                ┃ Description                                                                                                                                          ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━╇━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ CVE-2026-22028 │ MEDIUM   │ 6.1  │ preactjs │ preact  │          │ 2026-01-08T15:15:44.853 │ 2026-01-12T18:58:38.207 │ Preact, a lightweight web development framework, JSON serialization protection to prevent Virtual DOM elements from being constructed from arbitrary │
+│                │          │      │          │         │          │                         │                         │ JSON. A regression introduced in Preact 10.26.5 caused this protection to be softened. In applications where values from JSON payloads are assumed   │
+│                │          │      │          │         │          │                         │                         │ to be strings and passed unmodified to Preact as children, a specially-crafted JSON payload could be constructed that would be incorrectly treated   │
+│                │          │      │          │         │          │                         │                         │ as a valid VNode. When this chain of failures occurs it can result in HTML injection, which can allow arbitrary script execution if not mitigated by │
+│                │          │      │          │         │          │                         │                         │ CSP or other means. Applications using affected Preact versions are vulnerable if they meet all of the following conditions: first, pass unmodified, │
+│                │          │      │          │         │          │                         │                         │ unsanitized values from user-modifiable data sources (APIs, databases, local storage, etc.) directly into the render tree; second assume these       │
+│                │          │      │          │         │          │                         │                         │ values are strings but the data source could return actual JavaScript objects instead of JSON strings; and third, the data source either fails to    │
+│                │          │      │          │         │          │                         │                         │ perform type sanitization AND blindly stores/returns raw objects interchangeably with strings, OR is compromised (e.g., poisoned local storage,      │
+│                │          │      │          │         │          │                         │                         │ filesystem, or database). Versions 10.26.10, 10.27.3, and 10.28.2 patch the issue. The patch versions restore the previous strict equality checks    │
+│                │          │      │          │         │          │                         │                         │ that prevent JSON-parsed objects from being treated as valid VNodes. Other mitigations are available for those who cannot immediately upgrade.       │
+│                │          │      │          │         │          │                         │                         │ Validate input types, cast or validate network data, sanitize external data, and use Content Security Policy (CSP).                                  │
+└────────────────┴──────────┴──────┴──────────┴─────────┴──────────┴─────────────────────────┴─────────────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Matches: 1
+
+Severity Legend: Critical  High  Medium  Low
 ```
 
 ---
